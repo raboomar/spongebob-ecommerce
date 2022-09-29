@@ -1,6 +1,11 @@
 import React from "react";
 import "./card.css";
+import { useDispatch } from "react-redux";
+import { addToCart, calculateQty } from "../../redux/feature/cart/cartSlice";
+
 const Card = ({ item }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="grid-item">
       <div className="card">
@@ -17,9 +22,10 @@ const Card = ({ item }) => {
         </button>
         <button
           className="menu-btn view-btn"
-          // onClick={(e) => {
-          //   removeBook(book._id);
-          // }}
+          onClick={(e) => {
+            dispatch(addToCart(item));
+            dispatch(calculateQty());
+          }}
         >
           Add To Card
         </button>
