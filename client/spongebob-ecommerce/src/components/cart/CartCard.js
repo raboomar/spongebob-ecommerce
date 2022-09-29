@@ -1,8 +1,14 @@
 import React from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import {
+  increaseQty,
+  decreaseQty,
+  removeItem,
+} from "../../redux/feature/cart/cartSlice";
 import "./cart.css";
 const CartCard = ({ item }) => {
-  console.log(item);
+  const dispatch = useDispatch();
   return (
     <article className="cart-item">
       <img
@@ -13,9 +19,9 @@ const CartCard = ({ item }) => {
         <h4 className="item-price">{item.price}</h4>
         <button
           className="remove-btn"
-          // onClick={() => {
-          //   dispatch(removeItem(id));
-          // }}
+          onClick={() => {
+            dispatch(removeItem(item));
+          }}
         >
           remove
         </button>
@@ -23,22 +29,22 @@ const CartCard = ({ item }) => {
       <div>
         <button
           className="amount-btn"
-          // onClick={() => {
-          //   dispatch(increase({ id }));
-          // }}
+          onClick={() => {
+            dispatch(increaseQty(item));
+          }}
         >
           <FaChevronUp />
         </button>
         <p className="amount">{item.qty}</p>
         <button
           className="amount-btn"
-          // onClick={() => {
-          //   if (amount === 1) {
-          //     dispatch(removeItem(id));
-          //     return;
-          //   }
-          //   dispatch(decrease({ id }));
-          // }}
+          onClick={() => {
+            if (item.qty === 1) {
+              dispatch(removeItem(item));
+              return;
+            }
+            dispatch(decreaseQty(item));
+          }}
         >
           <FaChevronDown />
         </button>

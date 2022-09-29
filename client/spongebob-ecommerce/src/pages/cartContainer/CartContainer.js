@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./cartContainer.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CartCard from "../../components/cart/CartCard";
-
+import { calculateTotal } from "../../redux/feature/cart/cartSlice";
 const CartContainer = () => {
-  const { cart } = useSelector((state) => state.cart);
-  // console.log(cart);
+  const dispatch = useDispatch();
+  const { cart, totalAmount } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(calculateTotal());
+  }, [cart, dispatch]);
   return (
     <section className="cart">
       <header>Your cart</header>
@@ -19,7 +23,7 @@ const CartContainer = () => {
         <div className="cart-total">
           <h4>
             total
-            {/* <span>${total.toFixed(2)}</span> */}
+            <span>${totalAmount.toFixed(2)}</span>
           </h4>
         </div>
         <button className="btn clear-btn">clear cart</button>
