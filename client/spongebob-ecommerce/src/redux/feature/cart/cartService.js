@@ -37,7 +37,9 @@ const calculateTotal = (state) => {
   cart.map((item) => (total += item.qty * item.price));
   return total;
 };
-
+const clearCart = () => {
+  return [];
+};
 const cartService = {
   addToCart,
   calculateQty,
@@ -45,5 +47,6 @@ const cartService = {
   decreaseQty,
   removeItem,
   calculateTotal,
+  clearCart,
 };
 export default cartService;

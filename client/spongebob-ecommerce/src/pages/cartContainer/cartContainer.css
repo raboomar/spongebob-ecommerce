@@ -5,6 +5,7 @@
     margin-top: 40px;
     padding: 2.5rem 0;
     max-width: var(--fixed-width);
+    /* text-align: left; */
   }
   .cart h2 {
     text-transform: uppercase;
@@ -12,9 +13,25 @@
     margin-bottom: 3rem;
   }
 
+
   .cart-total h4 {
     text-transform: capitalize;
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
+  }
+
+  .clear-btn {
+    background: transparent;
+    padding: 0.5rem 1rem;
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    margin-top: 2.25rem;
+    border-radius: 20px;
+  }
+  .clear-cart-container{
+    text-align: left;
+  }
+  .clear-btn:hover {
+cursor: pointer;
   }
