@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../../components/menuItems/Card";
 import "./menuContainer.css";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMenu } from "../../redux/feature/menu/menuSlice";
 const MenuContainer = () => {
-  const FAKEDATA = [
-    { id: 1, price: 2.99, name: "test1", image: "url1" },
-    { id: 2, price: 4.99, name: "test2", image: "ur2" },
-    { id: 3, price: 65.99, name: "test3", image: "url3" },
-    { id: 4, price: 1.99, name: "test4", image: "url4" },
-  ];
+  const dispatch = useDispatch();
+  const { menu } = useSelector((state) => state.menu);
 
+  useEffect(() => {
+    dispatch(fetchMenu());
+  }, [dispatch]);
   return (
     <div className="grid-container">
-      {FAKEDATA.map((item) => (
+      {menu.map((item) => (
         <Card key={item.id} item={item} />
       ))}
     </div>

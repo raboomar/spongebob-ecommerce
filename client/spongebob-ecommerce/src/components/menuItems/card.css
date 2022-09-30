@@ -14,7 +14,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 8px;
-    background-color: var(--blue);
+    background-color: var(--babyblue);
     width: 250px;
     height: 260px;
     margin-top: 10px;
@@ -31,7 +31,7 @@ border-radius: 8px;
     margin-top: 5px;
    color: azure;
    font-size: large;
-    background-color: var(--babyblue)
+    background-color: var(--blue)
 }
 .menu-btn:hover{
     cursor: pointer;

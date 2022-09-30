@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import MenuItem from "./components/menuItem/MenuItem";
 import Navbar from "./components/navbar/Navbar";
 import CartContainer from "./pages/cartContainer/CartContainer";
 import PageNotFound from "./pages/error/PageNotFound";
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<MenuContainer />} />
+          <Route path="/menu/:id" element={<MenuItem />} />
           <Route path="/cart" element={<CartContainer />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
