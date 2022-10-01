@@ -9,6 +9,7 @@ import {
 import "./cart.css";
 const CartCard = ({ item }) => {
   const dispatch = useDispatch();
+
   return (
     <article className="cart-item">
       <img

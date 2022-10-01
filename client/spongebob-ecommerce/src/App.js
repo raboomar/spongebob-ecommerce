@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import MenuItem from "./components/menuItem/MenuItem";
 import Navbar from "./components/navbar/Navbar";
 import CartContainer from "./pages/cartContainer/CartContainer";
 import PageNotFound from "./pages/error/PageNotFound";
 import Home from "./pages/home/Home";
 import MenuContainer from "./pages/menuContainer/MenuContainer";
+import MenuITemContainer from "./pages/menuItemContainer/MenuITemContainer";
+import "./App.css";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<MenuContainer />} />
-          <Route path="/menu/:id" element={<MenuItem />} />
+          <Route path="/menu/:id" element={<MenuITemContainer />} />
           <Route path="/cart" element={<CartContainer />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

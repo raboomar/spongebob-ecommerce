@@ -1,10 +1,17 @@
 const addToCart = (state, item) => {
+  const selectedItem = item.item;
+  const selectedQty = item.qty;
   let cart = state.cart;
-  const foundItem = cart.find((cartItem) => cartItem.id === item.id);
+  const foundItem = cart.find((cartItem) => cartItem.id === selectedItem.id);
   if (foundItem) {
-    foundItem.qty++;
+    foundItem.qty += selectedQty;
   } else {
-    cart.push({ id: item.id, name: item.name, price: item.price, qty: 1 });
+    cart.push({
+      id: selectedItem.id,
+      name: selectedItem.name,
+      price: selectedItem.price,
+      qty: selectedQty,
+    });
   }
 };
 

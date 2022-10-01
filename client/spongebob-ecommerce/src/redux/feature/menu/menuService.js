@@ -9,7 +9,7 @@ const fetchMenu = () => {
 };
 
 const fetchMenuItem = (state, action) => {
-  let menu = state.menu;
+  let menu = fetchMenu();
   state.menuItem = [];
 
   let menuItemSelected = menu.filter(

@@ -1,0 +1,10 @@
+.menu-item-container{
+    display: grid;
+    grid-template-areas:
+
+      'pic pic pic abt abt abt'
+     ;
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}

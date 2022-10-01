@@ -1,10 +1,8 @@
 import React from "react";
-import "./card.css";
-import { useDispatch } from "react-redux";
-import { addToCart, calculateQty } from "../../redux/feature/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
+import AddToCartBtn from "../addToCartBtn/AddToCartBtn";
+import "./card.css";
 const Card = ({ item }) => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
     <div className="grid-item">
@@ -20,15 +18,7 @@ const Card = ({ item }) => {
         >
           View
         </button>
-        <button
-          className="menu-btn view-btn"
-          onClick={(e) => {
-            dispatch(addToCart(item));
-            dispatch(calculateQty());
-          }}
-        >
-          Add To Cart
-        </button>
+        <AddToCartBtn item={item} qtyNum={1} />
       </div>
     </div>
   );
