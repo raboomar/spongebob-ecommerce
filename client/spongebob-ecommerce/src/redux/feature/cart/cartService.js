@@ -1,3 +1,9 @@
+import { toast } from "react-toastify";
+
+const notify = (name) => {
+  toast.success(`${name} added to cart!`);
+};
+
 const addToCart = (state, item) => {
   const selectedItem = item.item;
   const selectedQty = item.qty;
@@ -6,6 +12,7 @@ const addToCart = (state, item) => {
   if (foundItem) {
     if (foundItem.qty < item.item.availableQty) {
       foundItem.qty += selectedQty;
+      notify(foundItem.name);
     }
   } else {
     cart.push({
@@ -16,6 +23,7 @@ const addToCart = (state, item) => {
       qty: selectedQty,
       availableQty: selectedItem.availableQty,
     });
+    notify(selectedItem.name);
   }
 };
 
