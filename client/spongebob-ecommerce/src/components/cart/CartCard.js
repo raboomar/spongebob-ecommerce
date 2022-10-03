@@ -1,5 +1,5 @@
 import React from "react";
-import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { FaChevronUp, FaChevronDown, FaTrashAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import {
   increaseQty,
@@ -11,19 +11,22 @@ const CartCard = ({ item }) => {
   const dispatch = useDispatch();
   return (
     <div className="cart-item">
-      <img src={item.img} alt={item.title} />
-      <div>
-        <h4>{item.name}</h4>
-        <h4 className="item-price">${item.price}</h4>
+      <div className="trash-btn">
         <button
           className="remove-btn"
           onClick={() => {
             dispatch(removeItem(item));
           }}
         >
-          remove
+          <FaTrashAlt color="red" />
         </button>
       </div>
+
+      <img src={item.img} alt={item.title} />
+      <div>
+        <h4>{item.name}</h4>
+      </div>
+
       <div>
         <button
           className="amount-btn"
@@ -46,6 +49,9 @@ const CartCard = ({ item }) => {
         >
           <FaChevronDown />
         </button>
+      </div>
+      <div className="cart-item-price">
+        <h4 className="item-price">${item.price}</h4>
       </div>
     </div>
   );
