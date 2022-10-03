@@ -32,4 +32,14 @@ ul {
   }
   .cart-link{
     float: right;
+    text-align: center;
+  }
+  .cart-link>a>span{
+    border-radius: 9px;
+    font-size: 14px;
+    background: var(--babyblue);
+    color: #fff;
+    padding: 2px 5px;
+    vertical-align: top;
+    margin-left: -10px; 
   }
