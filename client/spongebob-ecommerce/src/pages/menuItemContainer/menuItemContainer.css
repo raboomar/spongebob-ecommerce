@@ -1,10 +1,9 @@
 .menu-item-container{
     display: grid;
     grid-template-areas:
-
-      'pic pic pic abt abt abt'
+      'pic abt'
      ;
-    gap: 10px;
+    gap: 20px;
     background-color: #2196F3;
     padding: 10px;
 }

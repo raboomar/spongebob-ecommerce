@@ -4,13 +4,17 @@ const addToCart = (state, item) => {
   let cart = state.cart;
   const foundItem = cart.find((cartItem) => cartItem.id === selectedItem.id);
   if (foundItem) {
-    foundItem.qty += selectedQty;
+    if (foundItem.qty < item.item.availableQty) {
+      foundItem.qty += selectedQty;
+    }
   } else {
     cart.push({
       id: selectedItem.id,
       name: selectedItem.name,
       price: selectedItem.price,
+      img: selectedItem.img,
       qty: selectedQty,
+      availableQty: selectedItem.availableQty,
     });
   }
 };
@@ -18,7 +22,9 @@ const addToCart = (state, item) => {
 const increaseQty = (state, item) => {
   let cart = state.cart;
   const foundItem = cart.find((cartItem) => cartItem.id === item.id);
-  foundItem.qty++;
+  if (item.qty < item.availableQty) {
+    foundItem.qty++;
+  }
 };
 const decreaseQty = (state, item) => {
   let cart = state.cart;

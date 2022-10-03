@@ -7,9 +7,10 @@
     text-align: left;
     
   }
+
   .cart-item img {
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     object-fit: cover;
   } 
   .cart-item h4 {

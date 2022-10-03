@@ -9,8 +9,8 @@ export const qtySlice = createSlice({
   name: "qty",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.qty = qtyService.increment(state.qty);
+    increment: (state, action) => {
+      state.qty = qtyService.increment(state.qty, action.payload);
     },
     decrease: (state) => {
       state.qty = qtyService.decrease(state.qty);

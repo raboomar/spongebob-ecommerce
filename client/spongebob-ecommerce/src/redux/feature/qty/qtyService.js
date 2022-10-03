@@ -1,4 +1,7 @@
-const increment = (qty) => {
+const increment = (qty, availableQty) => {
+  if (qty >= availableQty) {
+    return qty;
+  }
   return (qty += 1);
 };
 const decrease = (qty) => {

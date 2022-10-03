@@ -14,11 +14,15 @@ const MenuItem = ({ item }) => {
   return (
     <>
       <div className="menu-item-pic">
-        <img src="" alt="" />
-        hii
+        <img className="menu-item-pic" src={item.img} alt={item.name} />
       </div>
       <div className="menu-item-abt">
         <div className="item-name">{item.name}</div>
+        <div className="abt-item">What's On It</div>
+
+        <div className="available-item-qty">
+          <p>Available Qty:{item.availableQty}</p>
+        </div>
 
         <div className="qty-selection">
           <button
@@ -31,13 +35,12 @@ const MenuItem = ({ item }) => {
           <input className="qty-input" type="text" readOnly value={qty} />
           <button
             onClick={() => {
-              dispatch(increment());
+              dispatch(increment(item.availableQty));
             }}
           >
             <FaPlus />
           </button>
         </div>
-        <div className="abt-item">What's On It</div>
 
         <div className="add-to-cart-btn">
           <AddToCartBtn item={item} qtyNum={qty} />

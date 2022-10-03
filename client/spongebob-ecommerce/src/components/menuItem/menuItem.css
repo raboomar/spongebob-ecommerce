@@ -1,7 +1,8 @@
 .menu-item-pic{
     grid-area: pic;
-    background-color: aqua;
-    height:45vh;
+    /* background-color: aqua; */
+    height: 350px;
+    /* width: 100%; */
 }
 .menu-item-abt{
     grid-area: abt;
@@ -9,13 +10,12 @@
     grid-template-areas:
     'name name name name name name'
     'abt-item abt-item abt-item abt-item abt-item abt-item'
-    'qty qty qty qty qty qty '
+    'available-item-qty available-item-qty available-item-qty qty qty qty '
     'addToCartBtn addToCartBtn addToCartBtn addToCartBtn addToCartBtn addToCartBtn';
     gap: 10px;
     background-color: white;
     padding: 10px;
-align-items: center;
-    
+    align-items: center;
 }
 .item-name{
     grid-area: name;
@@ -25,7 +25,10 @@ align-items: center;
     grid-area: abt-item;
     background-color: brown;
 }
-
+.available-item-qty{
+grid-area: available-item-qty;
+background-color: blueviolet;
+}
 
 .qty-selection{
     grid-area: qty;

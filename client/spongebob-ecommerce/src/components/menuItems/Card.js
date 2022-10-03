@@ -7,18 +7,27 @@ const Card = ({ item }) => {
   return (
     <div className="grid-item">
       <div className="card">
-        <h4>{item.name}</h4>
-        <h5>{item.image}</h5>
+        <div className="menu-items-name">
+          <h4>{item.name}</h4>
+        </div>
+        <div className="menu-items-img">
+          <img className="items-img" src={item.img} alt={item.name} />
+        </div>
+        <div className="menu-items-price">
+          <h6>${item.price}</h6>
+        </div>
 
-        <button
-          className="menu-btn"
-          onClick={() => {
-            navigate(`/menu/${item.id}`);
-          }}
-        >
-          View
-        </button>
-        <AddToCartBtn item={item} qtyNum={1} />
+        <div className="menu-items-btn">
+          <button
+            className="menu-btn"
+            onClick={() => {
+              navigate(`/menu/${item.id}`);
+            }}
+          >
+            View
+          </button>
+          <AddToCartBtn item={item} qtyNum={1} />
+        </div>
       </div>
     </div>
   );
