@@ -19,7 +19,7 @@ const addToCart = (state, item) => {
       id: selectedItem.id,
       name: selectedItem.name,
       price: selectedItem.price,
-      img: selectedItem.img,
+      img: selectedItem.imgUrl,
       qty: selectedQty,
       availableQty: selectedItem.availableQty,
     });

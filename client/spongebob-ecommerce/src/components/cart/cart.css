@@ -5,7 +5,7 @@
     grid-column-gap: 2rem;
     margin: 1.5rem 0;
     text-align: left;
-    
+    color: var(--blue);
   }
 
   .cart-item img {

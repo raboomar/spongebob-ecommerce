@@ -3,6 +3,7 @@ import Card from "../../components/menuItems/Card";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMenu } from "../../redux/feature/menu/menuSlice";
 import "./menuContainer.css";
+import Spinner from "../../components/spinner/Spinner";
 const MenuContainer = () => {
   const dispatch = useDispatch();
   const { menu, isLoading } = useSelector((state) => state.menu);
@@ -14,7 +15,7 @@ const MenuContainer = () => {
   return (
     <>
       {isLoading ? (
-        <div>Loading</div>
+        <Spinner />
       ) : (
         <div className="grid-container">
           {menu.map((item) => (

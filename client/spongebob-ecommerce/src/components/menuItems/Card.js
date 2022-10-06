@@ -4,10 +4,12 @@ import AddToCartBtn from "../addToCartBtn/AddToCartBtn";
 import "./card.css";
 const Card = ({ item }) => {
   const navigate = useNavigate();
-
+  const viewItem = () => {
+    navigate(`/menu/${item.id}`);
+  };
   return (
     <div className="grid-item">
-      <div className="card">
+      <div className="card" onClick={viewItem}>
         <div className="menu-items-name">
           <h5>{item.name}</h5>
         </div>
@@ -19,12 +21,7 @@ const Card = ({ item }) => {
         </div>
 
         <div className="menu-items-btn">
-          <button
-            className="menu-btn"
-            onClick={() => {
-              navigate(`/menu/${item.id}`);
-            }}
-          >
+          <button className="menu-btn" onClick={viewItem}>
             View
           </button>
           <AddToCartBtn item={item} qtyNum={1} />

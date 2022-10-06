@@ -1,6 +1,7 @@
 .home-title{
     margin: 10px;
     padding: 10px;
+    color: var(--blue)
 }
 
 .home-img{

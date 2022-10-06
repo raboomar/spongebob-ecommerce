@@ -26,8 +26,11 @@
       'price price'
       'btn btn';
     gap: 10px;
-    background-color: #2196F3;
+    background-color: var(--babyblue);
   }
+  .card:hover {
+ cursor: pointer;
+ }
 
 .menu-items-name{
   grid-area: name;

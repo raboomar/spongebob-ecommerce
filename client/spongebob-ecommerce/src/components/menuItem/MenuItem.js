@@ -13,12 +13,15 @@ const MenuItem = ({ item }) => {
   }, [dispatch]);
   return (
     <>
-      <div className="menu-item-pic">
+      <div className="menu-item-pic-container">
         <img className="menu-item-pic" src={item.imgUrl} alt={item.name} />
       </div>
       <div className="menu-item-abt">
         <div className="item-name">{item.name}</div>
-        <div className="abt-item">What's On It</div>
+        <div className="abt-item">
+          What's On It
+          <p>{item.description}</p>
+        </div>
 
         <div className="available-item-qty">
           <p>Available Qty:{item.availableQty}</p>
@@ -30,7 +33,7 @@ const MenuItem = ({ item }) => {
               dispatch(decrease());
             }}
           >
-            <FaMinus />
+            <FaMinus color="white" />
           </button>
           <input className="qty-input" type="text" readOnly value={qty} />
           <button
@@ -38,7 +41,7 @@ const MenuItem = ({ item }) => {
               dispatch(increment(item.availableQty));
             }}
           >
-            <FaPlus />
+            <FaPlus color="white" />
           </button>
         </div>
 
