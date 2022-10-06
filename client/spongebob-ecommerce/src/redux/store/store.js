@@ -10,4 +10,8 @@ export const store = configureStore({
     menu: menuReducer,
     qty: qtyReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

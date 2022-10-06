@@ -1,49 +1,18 @@
-const fetchMenu = () => {
-  const FAKEDATA = [
-    {
-      id: 1,
-      price: 2.99,
-      name: "test1",
-      image: "url1",
-      img: "https://i.imgur.com/xDnuN2Y.png",
-      availableQty: 5,
-    },
-    {
-      id: 2,
-      price: 4.99,
-      name: "test2",
-      image: "ur2",
-      img: "https://i.imgur.com/xDnuN2Y.png",
-      availableQty: 5,
-    },
-    {
-      id: 3,
-      price: 65.99,
-      name: "test3",
-      image: "url3",
-      img: "https://i.imgur.com/xDnuN2Y.png",
-      availableQty: 1,
-    },
-    {
-      id: 4,
-      price: 1.99,
-      name: "test4",
-      image: "url4",
-      img: "https://i.imgur.com/xDnuN2Y.png",
-      availableQty: 2,
-    },
-  ];
-  return FAKEDATA;
+import axios from "axios";
+const fetchMenu = async () => {
+  let url = process.env.REACT_APP_API_URL;
+  try {
+    let data = await axios.get(url);
+    return data.data;
+  } catch (error) {
+    return error;
+  }
 };
 
 const fetchMenuItem = (state, action) => {
-  let menu = fetchMenu();
+  let menu = state.menu;
   state.menuItem = [];
-
-  let menuItemSelected = menu.filter(
-    (item) => parseInt(item.id) === parseInt(action)
-  );
-
+  let menuItemSelected = menu.filter((item) => item.id === action);
   return menuItemSelected;
 };
 const menuService = {

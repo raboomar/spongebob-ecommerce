@@ -16,7 +16,7 @@
     border-radius: 20px;
     background-color: var(--babyblue);
     width: 300px;
-    height: 375px;
+    height: 400px;
     margin-top: 10px;
     padding: 25px;
     display: grid;
@@ -31,13 +31,13 @@
 
 .menu-items-name{
   grid-area: name;
- 
+ height: 50px;
 }
 
 
 .menu-items-img{
   grid-area: img;
- 
+
   
 }
 .items-img{

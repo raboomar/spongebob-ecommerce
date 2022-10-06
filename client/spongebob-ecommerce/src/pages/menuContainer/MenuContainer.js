@@ -5,17 +5,24 @@ import { fetchMenu } from "../../redux/feature/menu/menuSlice";
 import "./menuContainer.css";
 const MenuContainer = () => {
   const dispatch = useDispatch();
-  const { menu } = useSelector((state) => state.menu);
+  const { menu, isLoading } = useSelector((state) => state.menu);
 
   useEffect(() => {
     dispatch(fetchMenu());
   }, [dispatch]);
+
   return (
-    <div className="grid-container">
-      {menu.map((item) => (
-        <Card key={item.id} item={item} />
-      ))}
-    </div>
+    <>
+      {isLoading ? (
+        <div>Loading</div>
+      ) : (
+        <div className="grid-container">
+          {menu.map((item) => (
+            <Card key={item.id} item={item} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

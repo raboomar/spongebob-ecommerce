@@ -14,7 +14,7 @@ const MenuItem = ({ item }) => {
   return (
     <>
       <div className="menu-item-pic">
-        <img className="menu-item-pic" src={item.img} alt={item.name} />
+        <img className="menu-item-pic" src={item.imgUrl} alt={item.name} />
       </div>
       <div className="menu-item-abt">
         <div className="item-name">{item.name}</div>
