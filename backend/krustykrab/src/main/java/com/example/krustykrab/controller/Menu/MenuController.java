@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path="api/v1/menu")
 public class MenuController {
-private final MenuService menuService;
+    private final MenuService menuService;
 
     @CrossOrigin
     @GetMapping
@@ -19,10 +19,22 @@ private final MenuService menuService;
         return menuService.getMenuItems();
     }
 
+    @CrossOrigin
+    @GetMapping("/{id}")
+    public Menu getMenuItem(@PathVariable String id){
+        return menuService.getMenuItem(id);
+    }
+
 
     @CrossOrigin
     @PostMapping("/add")
     public Menu addMenuItem(@RequestBody Menu menu){
         return menuService.addMenuItem(menu);
+    }
+
+    @CrossOrigin
+    @PostMapping("/batch")
+    public String batchAdd(@RequestBody List<Menu> menus){
+        return menuService.batchAdd(menus);
     }
 }

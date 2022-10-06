@@ -18,8 +18,15 @@ public class MenuService {
         return menuRepository.getAll();
     }
 
+    public Menu getMenuItem (String id){
+        return menuRepository.findMenuItemById(id);
+    }
     public Menu addMenuItem(Menu menu){
         return menuRepository.addMenuItem(menu);
     }
 
+
+    public String batchAdd(List<Menu> menus){
+        return menuRepository.batchAdd(menus);
+    }
 }

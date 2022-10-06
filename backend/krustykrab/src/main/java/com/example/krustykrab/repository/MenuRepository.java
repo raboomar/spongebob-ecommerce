@@ -17,7 +17,7 @@ import java.util.Map;
 public class MenuRepository {
 
     @Autowired
-private DynamoDBMapper dynamoDBMapper;
+    private DynamoDBMapper dynamoDBMapper;
 
     public Menu addMenuItem(Menu menu){
         dynamoDBMapper.save(menu);
@@ -27,6 +27,11 @@ private DynamoDBMapper dynamoDBMapper;
     public List<Menu> getAll(){
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
         return dynamoDBMapper.scan(Menu.class, scanExpression);
+     }
+
+     public String batchAdd(List<Menu> menus){
+        dynamoDBMapper.batchSave(menus);
+        return "Items added";
      }
 
     public Menu findMenuItemById (String id){

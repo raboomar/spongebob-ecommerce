@@ -26,4 +26,7 @@ public class Menu {
     @DynamoDBAttribute
     private Long availableQty;
 
+    @DynamoDBAttribute
+    private String description;
+
 }
