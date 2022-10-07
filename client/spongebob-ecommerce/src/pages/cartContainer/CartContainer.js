@@ -5,10 +5,11 @@ import { calculateTotal } from "../../redux/feature/cart/cartSlice";
 import EmptyCart from "../../components/cart/EmptyCart";
 import Modal from "../../components/modal/Modal";
 import { openModal } from "../../redux/feature/modal/modalSlice";
-
+import { useNavigate } from "react-router-dom";
 import "./cartContainer.css";
 const CartContainer = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { cart, totalAmount } = useSelector((state) => state.cart);
   const { isModalOpen } = useSelector((state) => state.modal);
   useEffect(() => {
@@ -44,6 +45,17 @@ const CartContainer = () => {
             }}
           >
             clear cart
+          </button>
+        </div>
+
+        <div className="clear-cart-checkout">
+          <button
+            className="checkout-btn"
+            onClick={() => {
+              navigate("/payment");
+            }}
+          >
+            Check out
           </button>
         </div>
       </footer>

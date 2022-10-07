@@ -35,3 +35,15 @@
   .clear-btn:hover {
 cursor: pointer;
   }
+  .checkout-btn{
+    background: transparent;
+    padding: 0.5rem 1rem;
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    margin-top: 2.25rem;
+    border-radius: 20px;
+    
+  }
+  .checkout-btn:hover{
+    cursor: pointer;
+  }

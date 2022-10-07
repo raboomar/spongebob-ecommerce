@@ -1,0 +1,37 @@
+.payment-container{
+    display: grid;
+    grid-template-areas:
+        'personal personal confirm';
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+    height: 100vh;
+}
+
+.personal-info{
+    grid-area: personal;
+    background-color: aquamarine;
+    margin: 10px;
+    width: 90vh;
+    text-align: left;
+    padding: 20px;
+}
+
+
+
+.confirm{
+    grid-area: confirm;
+    background-color: pink;
+}
+
+.payment-section-title{
+    background-color: #eee;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 25px;
+    transition: 0.4s;
+    
+  }
+  
