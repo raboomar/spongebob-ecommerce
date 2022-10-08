@@ -1,6 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "./payment.css";
 const PaymentForm = () => {
+  const [customerPayment, setCustomerPayment] = useState({
+    name: "",
+    card: "",
+    expirationMonth: "",
+    expirationYear: "",
+    cvc: "",
+  });
+  const { card } = customerPayment;
+  const handleInput = (e) => {
+    if (e.target.name === "card") {
+      formatCC(e);
+    } else {
+      setCustomerPayment({
+        ...customerPayment,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
+
+  const formatCC = (e) => {
+    const inputVal = e.target.value.replace(/ /g, "");
+    let inputNumbersOnly = inputVal.replace(/\D/g, "");
+
+    if (inputNumbersOnly.length > 16) {
+      inputNumbersOnly = inputNumbersOnly.substr(0, 16);
+    }
+    const splits = inputNumbersOnly.match(/.{1,4}/g);
+
+    let spacedNumber = "";
+    if (splits) {
+      spacedNumber = splits.join(" ");
+    }
+    setCustomerPayment({
+      ...customerPayment,
+      [e.target.name]: spacedNumber,
+    });
+  };
+
+  console.log(customerPayment);
   return (
     <div>
       <div>
@@ -15,6 +54,9 @@ const PaymentForm = () => {
               onPaste={(e) => e.preventDefault()}
               name="name"
               className="billing-input"
+              onChange={(e) => {
+                handleInput(e);
+              }}
             />
 
             <label htmlFor="cardNumber" className="card-label">
@@ -23,15 +65,14 @@ const PaymentForm = () => {
             <input
               required
               type="tel"
+              value={card}
               pattern="[0-9\s]{13,19}"
               inputMode="numeric"
-              // onChange={this.validateInput}
-              // value={this.state.number}
-              // onKeyDown={this.removeSpecial}
+              onChange={(e) => {
+                handleInput(e);
+              }}
               onPaste={(e) => e.preventDefault()}
-              // onKeyPress={this.addSpace}
-              // onFocus={this.handleInputFocus}
-              name="number"
+              name="card"
               maxLength="19"
               autoComplete="cc-number"
               placeholder="xxxx xxxx xxxx xxxx"
@@ -48,10 +89,10 @@ const PaymentForm = () => {
                   required
                   id="cardMonth"
                   data-ref="cardDate"
-                  // value={this.state.expiry}
-                  name="expiry"
-                  // onChange={this.handleInputChange}
-                  // onFocus={this.handleInputFocus}
+                  name="expirationMonth"
+                  onChange={(e) => {
+                    handleInput(e);
+                  }}
                 >
                   <option value="" defaultChecked="true">
                     Month
@@ -76,10 +117,10 @@ const PaymentForm = () => {
                   required
                   id="cardYear"
                   data-ref="cardDate"
-                  // value={this.state.expiryyear}
-                  name="expiryyear"
-                  // onChange={this.handleInputChange}
-                  // onFocus={this.handleInputFocus}
+                  name="expirationYear"
+                  onChange={(e) => {
+                    handleInput(e);
+                  }}
                 >
                   <option>Year</option>
 
@@ -102,14 +143,11 @@ const PaymentForm = () => {
                   required
                   className="cvv-input"
                   type="tel"
-                  // onChange={this.validateInput}
-                  // onKeyDown={this.removeSpecial}
-                  // onPaste={(e) => e.preventDefault()}
-                  // onFocus={this.handleInputFocus}
                   name="cvc"
                   id="cvv"
-                  // value={this.state.cvc}
-
+                  onChange={(e) => {
+                    handleInput(e);
+                  }}
                   maxLength="4"
                 />
               </div>
