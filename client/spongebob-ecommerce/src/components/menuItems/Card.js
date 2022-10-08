@@ -9,15 +9,17 @@ const Card = ({ item }) => {
   };
   return (
     <div className="grid-item">
-      <div className="card" onClick={viewItem}>
-        <div className="menu-items-name">
-          <h5>{item.name}</h5>
-        </div>
-        <div className="menu-items-img">
-          <img className="items-img" src={item.imgUrl} alt={item.name} />
-        </div>
-        <div className="menu-items-price">
-          <h6>${item.price}</h6>
+      <div className="card">
+        <div onClick={viewItem}>
+          <div className="menu-items-name">
+            <h5>{item.name}</h5>
+          </div>
+          <div className="menu-items-img">
+            <img className="items-img" src={item.imgUrl} alt={item.name} />
+          </div>
+          <div className="menu-items-price">
+            <h6>${item.price}</h6>
+          </div>
         </div>
 
         <div className="menu-items-btn">
