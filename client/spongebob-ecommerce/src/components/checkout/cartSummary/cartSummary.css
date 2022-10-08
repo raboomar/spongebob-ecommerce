@@ -1,0 +1,12 @@
+.cart-summary-item{
+    display: grid;
+    grid-template-columns: 200px auto auto;
+    grid-column-gap: 2rem;
+    text-align: left;
+    color: var(--blue);
+}
+
+
+.summary-price{
+   text-align: end;
+}

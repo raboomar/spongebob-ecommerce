@@ -1,32 +1,51 @@
 .payment-container{
     display: grid;
     grid-template-areas:
-        'personal personal confirm';
+        'krabs krabs'
+        'personal confirm';
     gap: 10px;
     padding: 10px;
-    align-items: center;
-    height: 100vh;
+    /* align-items: center; */
+    height: 50vh;
 }
 
 .personal-info{
     grid-area: personal;
-    background-color: aquamarine;
     margin: 10px;
-    width: 90vh;
+    height: 500px;
+    width: 600px;
+ 
+    /* width: 60vh; */
     text-align: left;
     padding: 20px;
+ 
+    height: auto;
+    margin: 0 auto;
+    /* padding: 10px; */
+    position: relative;
+
 }
 
 
+.checkout-img{
+    grid-area: krabs;
 
+}
+
+.krabs-money{
+    height: 40vh;
+    width: 100vh;
+border-radius: 30px;
+}
 .confirm{
     grid-area: confirm;
-    background-color: pink;
+    width: 40vh;
+    margin-top: 30px;
 }
 
 .payment-section-title{
-    background-color: #eee;
     padding: 18px;
+    padding-left: 0;
     border: none;
     text-align: left;
     outline: none;

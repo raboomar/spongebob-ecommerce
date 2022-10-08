@@ -7,7 +7,6 @@ import Spinner from "../../components/spinner/Spinner";
 const MenuContainer = () => {
   const dispatch = useDispatch();
   const { menu, isLoading } = useSelector((state) => state.menu);
-
   useEffect(() => {
     dispatch(fetchMenu());
   }, [dispatch]);

@@ -15,7 +15,7 @@ const cartPersistConfig = {
   storage,
 };
 
-const menuPersistedReducer = persistReducer(menuPersistConfig, menuReducer);
+// const menuPersistedReducer = persistReducer(menuPersistConfig, menuReducer);
 
 const cartPersistedReducer = persistReducer(cartPersistConfig, cartReducer);
 
@@ -23,7 +23,7 @@ export const store = configureStore({
   reducer: {
     cart: cartPersistedReducer,
     modal: modalReducer,
-    menu: menuPersistedReducer,
+    menu: menuReducer,
     qty: qtyReducer,
   },
   middleware: (getDefaultMiddleware) =>

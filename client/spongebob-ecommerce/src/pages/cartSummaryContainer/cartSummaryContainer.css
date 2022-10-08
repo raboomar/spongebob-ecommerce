@@ -1,0 +1,18 @@
+.summary-container{
+    display: grid;
+    grid-template-areas: 
+    'card' 
+    'total';
+    gap: 10px;
+    padding: 10px;
+    
+}
+
+.summary-card{
+    grid-area: card;
+}
+
+.summary-total{
+    grid-area: total;
+    text-align: end;
+}

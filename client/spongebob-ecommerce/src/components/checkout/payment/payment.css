@@ -1,0 +1,58 @@
+.date-cvv-box{
+    display: grid;
+    grid-template-areas: 'month year cvv';
+    gap: 10px;    
+}
+.billing-input, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+   
+  }
+  .billing-input>select{
+    padding: 12px 20px;
+  }
+
+.cc-month{
+    grid-area: month;
+}
+
+.cc-year{
+    grid-area: year;
+    }
+
+.cc-cvv{
+    grid-area: cvv;
+    }
+.cc-cvv{
+    display: grid;
+    grid-template-areas:
+    'label'
+    'input';
+    margin-bottom: 10px;
+    }
+.cvv-input{
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 8px 20px;
+    }
+
+    .payment-btn-container{
+        display: flex;
+        justify-content: end;
+    
+    }
+
+    .payment-submit-btn{
+        all: unset;
+        cursor: pointer;
+        border-radius: 20px;
+        border: 2px solid var(--blue);
+        padding: 5px;
+    
+    }
