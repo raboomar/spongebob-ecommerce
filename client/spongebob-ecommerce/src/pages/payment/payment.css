@@ -5,8 +5,7 @@
         'personal confirm';
     gap: 10px;
     padding: 10px;
-    /* align-items: center; */
-    height: 50vh;
+    height: 100vh;
 }
 
 .personal-info{
@@ -14,14 +13,10 @@
     margin: 10px;
     height: 500px;
     width: 600px;
- 
-    /* width: 60vh; */
     text-align: left;
     padding: 20px;
- 
     height: auto;
     margin: 0 auto;
-    /* padding: 10px; */
     position: relative;
 
 }

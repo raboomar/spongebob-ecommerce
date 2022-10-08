@@ -14,10 +14,12 @@ const MenuITemContainer = () => {
   }, [dispatch, id]);
 
   return (
-    <div className="menu-item-container">
-      {menuItem.map((item) => (
-        <MenuItem key={item.id} item={item} />
-      ))}
+    <div className="menu-item-container-body">
+      <div className="menu-item-container">
+        {menuItem.map((item) => (
+          <MenuItem key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   );
 };

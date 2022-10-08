@@ -9,3 +9,6 @@
     margin: 10px;
     border-radius: 16px;
 }
+.menu-item-container-body{
+  height: 100vh;
+}
