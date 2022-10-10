@@ -1,4 +1,4 @@
-package com.example.krustykrab.repository;
+package com.example.krustykrab.repository.menuRepository;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBSaveExpression;

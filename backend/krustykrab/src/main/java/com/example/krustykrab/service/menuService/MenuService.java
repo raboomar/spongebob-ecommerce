@@ -1,12 +1,10 @@
 package com.example.krustykrab.service.menuService;
 
-import com.example.krustykrab.config.AwsConfig;
 import com.example.krustykrab.model.MenuModel.Menu;
-import com.example.krustykrab.repository.MenuRepository;
+import com.example.krustykrab.repository.menuRepository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
