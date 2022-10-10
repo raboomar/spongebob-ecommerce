@@ -2,7 +2,7 @@ import axios from "axios";
 const fetchMenu = async () => {
   let url = process.env.REACT_APP_API_URL;
   try {
-    let data = await axios.get(url);
+    let data = await axios.get(`${url}menu`);
     return data.data;
   } catch (error) {
     return error;

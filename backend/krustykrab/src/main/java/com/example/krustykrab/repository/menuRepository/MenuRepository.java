@@ -8,13 +8,12 @@ import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
 import com.example.krustykrab.model.MenuModel.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Repository
-public class MenuRepository {
+public class MenuRepository   {
 
     @Autowired
     private DynamoDBMapper dynamoDBMapper;

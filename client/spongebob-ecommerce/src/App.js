@@ -7,6 +7,7 @@ import MenuContainer from "./pages/menuContainer/MenuContainer";
 import MenuITemContainer from "./pages/menuItemContainer/MenuITemContainer";
 import "./App.css";
 import Payment from "./pages/payment/Payment";
+import OrderConfirmationContainer from "./pages/orderCinfirm/OrderConfirmationContainer";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           <Route path="/menu/:id" element={<MenuITemContainer />} />
           <Route path="/cart" element={<CartContainer />} />
           <Route path="/payment" element={<Payment />} />
+          <Route
+            path="/confirmation"
+            element={<OrderConfirmationContainer />}
+          />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>

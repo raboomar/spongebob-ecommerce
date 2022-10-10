@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { saveOrder } from "../../../redux/feature/order/orderSlice";
 import "./payment.css";
 const PaymentForm = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.cart);
   const [customerPayment, setCustomerPayment] = useState({
     name: "",
     card: "",
@@ -8,7 +14,7 @@ const PaymentForm = () => {
     expirationYear: "",
     cvc: "",
   });
-  const { card } = customerPayment;
+  const { card, name, expirationMonth, expirationYear, cvc } = customerPayment;
   const handleInput = (e) => {
     if (e.target.name === "card") {
       formatCC(e);
@@ -39,7 +45,14 @@ const PaymentForm = () => {
     });
   };
 
-  console.log(customerPayment);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (card && name && expirationMonth && expirationYear && cvc) {
+      dispatch(saveOrder(cart));
+      navigate("/confirmation");
+    }
+  };
+
   return (
     <div>
       <div>
@@ -156,7 +169,9 @@ const PaymentForm = () => {
           <div className="payment-btn-container">
             <button
               className="payment-submit-btn"
-              // onClick={this.submit}
+              onClick={(e) => {
+                handleSubmit(e);
+              }}
             >
               Place Order
             </button>

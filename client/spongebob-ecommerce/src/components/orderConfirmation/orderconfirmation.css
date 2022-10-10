@@ -1,0 +1,27 @@
+.order-confirm{
+display: grid;
+grid-template-areas:
+  'img img img img'
+  'userinfo userinfo cartinfo cartinfo'
+  ;
+gap: 10px;
+
+padding: 10px;
+}
+
+.order-img{
+    grid-area: img;
+    
+}
+
+.userinfo{
+    grid-area: userinfo;
+
+}
+.cart-info{
+    grid-area: cartinfo;
+
+}
+.order-confirm-img{
+    height: 600px;
+}

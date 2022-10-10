@@ -5,7 +5,7 @@ import cartReducer from "../feature/cart/cartSlice";
 import modalReducer from "../feature/modal/modalSlice";
 import menuReducer from "../feature/menu/menuSlice";
 import qtyReducer from "../feature/qty/qtySlice";
-
+import orderReducer from "../feature/order/orderSlice";
 const menuPersistConfig = {
   key: "menu",
   storage,
@@ -25,6 +25,7 @@ export const store = configureStore({
     modal: modalReducer,
     menu: menuReducer,
     qty: qtyReducer,
+    order: orderReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,0 +1,15 @@
+.cart-confirm-item img {
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
+    border-radius: 5px;
+  } 
+
+  .cart-confirm-item{
+    display: grid;
+    grid-template-columns: auto 200px auto auto;
+    grid-column-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--blue);
+  }
