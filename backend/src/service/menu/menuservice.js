@@ -12,4 +12,21 @@ const getMenu = async (request, response) => {
   }
 };
 
-module.exports = { getMenu };
+const getMenuItem = async (request, response) => {
+  try {
+    const menuItem = await dynamoClient.dynamoClient
+      .get({
+        TableName: "kurst-krab",
+        Key: {
+          id: request.params.id,
+        },
+      })
+      .promise();
+
+    response.status(200).json([menuItem.Item]);
+  } catch (error) {
+    response.status(500).send("Server side error");
+  }
+};
+
+module.exports = { getMenu, getMenuItem };

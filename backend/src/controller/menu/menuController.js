@@ -3,4 +3,8 @@ const getMenu = (request, response) => {
   menuService.getMenu(request, response);
 };
 
-module.exports = { getMenu };
+const getMenuItem = (request, response) => {
+  menuService.getMenuItem(request, response);
+};
+
+module.exports = { getMenu, getMenuItem };
