@@ -23,14 +23,28 @@ export const fetchMenu = createAsyncThunk("fetchMenu", async (_, thunkAPI) => {
   }
 });
 
+export const fetchMenuItem = createAsyncThunk(
+  "fetchMenuItem",
+  async (id, thunkAPI) => {
+    try {
+      return await menuService.fetchMenuItem(id);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const menuSlice = createSlice({
   name: "menu",
   initialState,
-  reducers: {
-    fetchMenuItem: (state, action) => {
-      state.menuItem = menuService.fetchMenuItem(state, action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchMenu.pending, (state) => {
@@ -45,9 +59,22 @@ export const menuSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.errorMessage = action.payload;
+      })
+      .addCase(fetchMenuItem.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchMenuItem.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.menuItem = action.payload;
+        state.isSuccessful = true;
+      })
+      .addCase(fetchMenuItem.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.errorMessage = action.payload;
       });
   },
 });
 
-export const { fetchMenuItem } = menuSlice.actions;
+// export const { fetchMenuItem } = menuSlice.actions;
 export default menuSlice.reducer;

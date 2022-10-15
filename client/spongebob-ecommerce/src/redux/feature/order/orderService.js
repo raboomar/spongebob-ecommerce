@@ -1,15 +1,9 @@
 import axios from "axios";
 
-// const getDate = () => {
-//   let date = new Date(year, month, day, hours, minutes);
-//   return `${date.getMonth()}-${date.getDay()}-${date.getFullYear()}`;
-// };
-
 const saveOrder = async (cart) => {
-  let url = process.env.REACT_APP_API_URL;
+  let url = process.env.REACT_APP_API_URL || "any-default-local-build_env";
   try {
     let data = JSON.stringify({
-      customerId: "Guest",
       date: new Date().toLocaleDateString(),
       ordered: cart,
     });
