@@ -8,7 +8,9 @@ import MenuITemContainer from "./pages/menuItemContainer/MenuITemContainer";
 import "./App.css";
 import Payment from "./pages/payment/Payment";
 import OrderConfirmationContainer from "./pages/orderCinfirm/OrderConfirmationContainer";
-
+import Register from "./components/appUserForm/Register";
+import Login from "./components/appUserForm/Login";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="container">
@@ -27,8 +29,11 @@ function App() {
             path="/confirmation"
             element={<OrderConfirmationContainer />}
           />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        <ToastContainer />
       </div>
 
       {/* <div className="footer">Footer</div> */}

@@ -12,7 +12,8 @@ export const saveOrder = createAsyncThunk(
   "saveOrder",
   async (cart, thunkAPI) => {
     try {
-      return await orderService.saveOrder(cart);
+      const token = thunkAPI.getState().auth.appUser;
+      return await orderService.saveOrder(cart, token);
     } catch (error) {
       const message =
         (error.response &&

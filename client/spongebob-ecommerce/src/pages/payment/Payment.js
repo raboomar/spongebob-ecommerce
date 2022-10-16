@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PaymentForm from "../../components/checkout/payment/PaymentForm";
 import CartSummaryContainer from "../cartSummaryContainer/CartSummaryContainer";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./payment.css";
 const Payment = () => {
+  const navigate = useNavigate();
+  const { cart } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate("/menu");
+    }
+  }, []);
+
   return (
     <div className="payment-container">
       <div className="checkout-img">

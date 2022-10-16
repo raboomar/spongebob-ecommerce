@@ -6,16 +6,11 @@ import modalReducer from "../feature/modal/modalSlice";
 import menuReducer from "../feature/menu/menuSlice";
 import qtyReducer from "../feature/qty/qtySlice";
 import orderReducer from "../feature/order/orderSlice";
-const menuPersistConfig = {
-  key: "menu",
-  storage,
-};
+import authReducer from "../feature/auth/authSlice";
 const cartPersistConfig = {
   key: "cart",
   storage,
 };
-
-// const menuPersistedReducer = persistReducer(menuPersistConfig, menuReducer);
 
 const cartPersistedReducer = persistReducer(cartPersistConfig, cartReducer);
 
@@ -26,6 +21,7 @@ export const store = configureStore({
     menu: menuReducer,
     qty: qtyReducer,
     order: orderReducer,
+    auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

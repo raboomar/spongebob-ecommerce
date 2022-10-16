@@ -31,6 +31,9 @@ ul {
   .active {
     background-color: var(--babyblue);
   }
+  .register-link{
+float: right;
+  }
   .cart-link{
     float: right;
     text-align: center;
